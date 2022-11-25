@@ -60,14 +60,14 @@ public class Event {
 	
 	//altri metodi
 	public void book(int value) throws Exception {
-		if(date.isBefore(LocalDate.now())) {
-			throw new Exception("l'evento selezionato è scaduto");
+		if( (date.isBefore(LocalDate.now()) ) || ( nSeatsBooked == nSeatsInTotal)) {
+			throw new Exception("l'evento selezionato non può essere prenotato");
 		}
 		nSeatsBooked += value;
 		seatsReserved += value;
 	}
 	public void cancel(int value) throws Exception {
-		if(date.isBefore(LocalDate.now())) {
+		if( (date.isBefore(LocalDate.now()) ) || ( nSeatsBooked == 0)) {
 			throw new Exception("l'evento selezionato è scaduto");
 		}
 		nSeatsBooked -= value;

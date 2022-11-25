@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: andrea
-Build-Jdk: 17.0.5
-Main-Class: org.calculator.Main
-Created-By: Maven Integration for Eclipse
-
