@@ -10,16 +10,17 @@ public class Event {
 	private int nSeatsInTotal;
 	private int nSeatsBooked;
 	
+	//variabili contatore
+	private static int seatsReserved = 0;
+	private static int cancelledPlaces = 0;
+	
 	
 	//costrutture evento
 	public Event(String titleEvent, LocalDate date, int nSeatsInTotal) throws Exception {
 		
 		setTitleEvent(titleEvent);
 		setDate(date);
-		if(nSeatsInTotal < 0) {
-			throw new Exception("i posti inseriti sono minori di 1");
-		}
-		this.nSeatsInTotal = nSeatsInTotal;
+		controlnSeatsInTotal(nSeatsInTotal);
 		this.nSeatsBooked = 0;
 	}
 
@@ -49,18 +50,30 @@ public class Event {
 		return nSeatsBooked;
 	}
 	
-	//altri metodi
-	public void book() throws Exception {
-		if(date.isBefore(LocalDate.now())) {
-			throw new Exception("l'evento selezionato è scaduto");
-		}
-		nSeatsBooked ++;
+	public int getCancelledPlaces() {
+		return cancelledPlaces;
 	}
-	public void cancel() throws Exception {
+	
+	//altri metodi
+	public void book(int value) throws Exception {
 		if(date.isBefore(LocalDate.now())) {
 			throw new Exception("l'evento selezionato è scaduto");
 		}
-		nSeatsBooked --;
+		nSeatsBooked += value;
+	}
+	public void cancel(int value) throws Exception {
+		if(date.isBefore(LocalDate.now())) {
+			throw new Exception("l'evento selezionato è scaduto");
+		}
+		nSeatsBooked -= value;
+		cancelledPlaces += value;
+	}
+	
+	private void controlnSeatsInTotal(int nSeatsInTotal) throws Exception {
+		if(nSeatsInTotal <= 0) {
+			throw new Exception("i posti inseriti sono minori di 1");
+		}
+		this.nSeatsInTotal = nSeatsInTotal;
 	}
 	
 	private String dataFormatter() {
@@ -69,7 +82,7 @@ public class Event {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return dataFormatter() + "-" + getTitleEvent();
+		return dataFormatter() + " - " + getTitleEvent();
 	}
 	
 	
