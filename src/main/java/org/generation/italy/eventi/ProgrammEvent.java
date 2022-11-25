@@ -2,10 +2,11 @@ package org.generation.italy.eventi;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class ProgrammEvent {
-
+public class ProgrammEvent{
+	
 	//variabili d'istanza
 	String titleProgrammEvent;
 	List<Event> eventsScheduled;
@@ -21,13 +22,20 @@ public class ProgrammEvent {
 	public String getTitleProgrammEvent() {
 		return titleProgrammEvent;
 	}
-
 	public void setTitleProgrammEvent(String titleProgrammEvent) {
 		this.titleProgrammEvent = titleProgrammEvent;
 	}
 	
-	public List<Event> getEventsScheduled(){
-		return eventsScheduled;
+	public String getEventsScheduled(){	
+		
+		String orderEventsScheduled = "";
+		
+		compare();
+		
+		for (Event event : eventsScheduled) {
+			orderEventsScheduled += event.dataFormatter() + " - " + event.getTitleEvent() + "\n";
+		}
+		return orderEventsScheduled;
 	}
 	
 	//metodi
@@ -62,10 +70,21 @@ public class ProgrammEvent {
 		
 	}
 	
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "nome evento : " + getTitleProgrammEvent() 
 				+ "\n" + getEventsScheduled();
+	}
+
+	public void compare() {
+		//creo un 
+		eventsScheduled.sort(
+				//inserisco una expression Lambda per far in modo di ritornare un singolo valore
+				(event1, event2) -> 
+				//Il compareTo()è un metodo confronta lessicograficamente due stringhe.
+				event1.getDate().compareTo( event2.getDate() ) 
+				);
 	}
 }

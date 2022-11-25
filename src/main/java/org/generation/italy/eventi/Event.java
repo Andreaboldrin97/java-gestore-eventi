@@ -81,7 +81,7 @@ public class Event {
 		this.nSeatsInTotal = nSeatsInTotal;
 	}
 	
-	private String dataFormatter() {
+	public String dataFormatter() {
 		return date.getDayOfMonth() + "/" + date.getMonth() + "/" + date. getYear();	
 		}
 	@Override
