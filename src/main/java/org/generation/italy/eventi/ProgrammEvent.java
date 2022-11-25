@@ -2,7 +2,6 @@ package org.generation.italy.eventi;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ProgrammEvent{
@@ -32,6 +31,7 @@ public class ProgrammEvent{
 		
 		compare();
 		
+		//ad ogni ciclo assoccio una scritta in modo da andare a capo 
 		for (Event event : eventsScheduled) {
 			orderEventsScheduled += event.dataFormatter() + " - " + event.getTitleEvent() + "\n";
 		}
