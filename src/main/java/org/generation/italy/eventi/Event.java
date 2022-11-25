@@ -50,6 +50,10 @@ public class Event {
 		return nSeatsBooked;
 	}
 	
+	public int getSeatsReserveds() {
+		return seatsReserved;
+	}
+	
 	public int getCancelledPlaces() {
 		return cancelledPlaces;
 	}
@@ -60,6 +64,7 @@ public class Event {
 			throw new Exception("l'evento selezionato è scaduto");
 		}
 		nSeatsBooked += value;
+		seatsReserved += value;
 	}
 	public void cancel(int value) throws Exception {
 		if(date.isBefore(LocalDate.now())) {
