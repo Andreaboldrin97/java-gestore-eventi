@@ -21,14 +21,14 @@ public class Main {
 		
 		try {
 			Event event1 = new Event("poyo", LocalDate.of(2023, 06, 24), 50);
-			Event event2 = new Event("poyo2", LocalDate.of(2023, 06, 24), 50);
-			Event event3 = new Event("poyo3", LocalDate.of(2023, 06, 25), 50);
-			Event event4 = new Event("poyo4", LocalDate.of(2022, 12, 24), 50);
-			Event event5 = new Event("poyo5", LocalDate.of(2023, 04, 24), 50);
-			Event event6 = new Event("poyo6", LocalDate.of(2023, 02, 25), 50);
+			Event event2 = new Event("poyo2x", LocalDate.of(2023, 06, 24), 60);
+			Event event3 = new Event("poyo3yy", LocalDate.of(2023, 06, 25), 30);
+			Event event4 = new Event("poyo4zzz", LocalDate.of(2022, 12, 24), 20);
+			Event event5 = new Event("poyo5", LocalDate.of(2023, 04, 24), 10);
+			Event event6 = new Event("poyo6", LocalDate.of(2023, 02, 25), 70);
 			
 			//creiamo ProgrammEvent
-			ProgrammEvent eventsScheduled = new ProgrammEvent("poyoEvent");
+			ProgrammEventUnique eventsScheduled = new ProgrammEventUnique("poyoEvent");
 			eventsScheduled.addEvent(event1);
 			eventsScheduled.addEvent(event2);
 			eventsScheduled.addEvent(event3);
@@ -39,6 +39,14 @@ public class Main {
 			System.out.println("-----------------------");
 			System.out.println("Eventi in data 2023-06-24");
 			eventsScheduled.filterByDate(LocalDate.of(2023, 06, 24));
+			System.out.println("-----------------------");
+			System.out.println("Evento con più posti :");
+			eventsScheduled.getMaxNumberOfSeats();
+			System.out.println("Evento con meno posti :");
+			eventsScheduled.getMinNumberOfSeats();
+			System.out.println("-----------------------");
+			System.out.println("Ordinato per lunghezza nomi :");
+			eventsScheduled.orderedPrint();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
