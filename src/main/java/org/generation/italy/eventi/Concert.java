@@ -7,8 +7,8 @@ import java.time.LocalTime;
 public class Concert extends Event {
 	
 	//variabilo d'istanza
-	 LocalTime time;
-	 BigDecimal price;
+	 private LocalTime time;
+	 private BigDecimal price;
 	 
 	// costrutto
 	public Concert(String titleEvent, LocalDate date, int nSeatsInTotal, LocalTime time, BigDecimal price) throws Exception {

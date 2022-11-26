@@ -7,8 +7,8 @@ import java.util.List;
 public class ProgrammEvent{
 	
 	//variabili d'istanza
-	String titleProgrammEvent;
-	List<Event> eventsScheduled;
+	private String titleProgrammEvent;
+	private List<Event> eventsScheduled;
 	
 	//costruttore ProgrammEvent 
 	public ProgrammEvent(String titleProgrammEvent) {
