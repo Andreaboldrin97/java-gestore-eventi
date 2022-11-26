@@ -46,7 +46,12 @@ public class Main {
 			eventsScheduled.getMinNumberOfSeats();
 			System.out.println("-----------------------");
 			System.out.println("Ordinato per lunghezza nomi :");
-			eventsScheduled.orderedPrint();
+			System.out.println(eventsScheduled.orderedPrint());
+			System.out.println("-----------------------");
+			System.out.println("Prendo il primo evento in programma :");
+			System.out.println(eventsScheduled.getFirstEvent());
+			System.out.println("Prendo l'ultimo evento in programma :");
+			System.out.println(eventsScheduled.getLastEvent());
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
