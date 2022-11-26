@@ -84,12 +84,25 @@ public class Event {
 	public String dataFormatter() {
 		return date.getDayOfMonth() + "/" + date.getMonth() + "/" + date. getYear();	
 		}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return dataFormatter() + " - " + getTitleEvent();
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		
+		//trsformo l'oggetto in un Event
+		Event e = (Event) obj;
+		
+		//se hanno lo stesso titolo e stessa data ritorna true
+		if( getTitleEvent().equals(e.getTitleEvent()) &&  getDate().equals(e.getDate())) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 }
