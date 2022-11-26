@@ -52,9 +52,14 @@ public class ProgrammEventUnique {
 	}
 	
 	public void filterByDate(LocalDate filterDate) {
-		List<Event> filteredEvent = new ArrayList<Event>();
-		
-		filteredEvent.stream().filter(e -> e.getDate().equals(filterDate));
+		//assegno ad una collection di ritorno
+		List<Event> filteredEvent = 
+				//alla collection dove sono i dati aggiungo l'interfaccia Strem + il metodo filter
+				eventsScheduled.stream().filter
+					//scelgo in che modo filtrere i dati
+					(e -> e.getDate().equals(filterDate))
+						//chiudo lo stream
+						.toList();
 		
 		System.out.println(filteredEvent);
 	}
