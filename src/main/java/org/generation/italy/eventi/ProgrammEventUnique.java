@@ -99,7 +99,6 @@ public class ProgrammEventUnique {
 	
 	//creo il comparatore per la lunghezza
 	public static class ComparoterOfLengths implements Comparator<Event>{
-
 		@Override
 		public int compare(Event o1, Event o2) {
 			// TODO Auto-generated method stub
