@@ -70,7 +70,7 @@ public class ProgrammEventUnique {
 		Event eventMaxNumberOfSeats = null;
 		int maxNumberOfSeats = Integer.MIN_VALUE;
 		
-		for(Event e : eventsScheduled) {
+		for(Event e : getEventsScheduled()) {
 			
 			if(maxNumberOfSeats < e.getnSeatsInTotal()) {
 				
@@ -86,7 +86,7 @@ public class ProgrammEventUnique {
 		Event eventMinNumberOfSeats = null;
 		int minNumberOfSeats = Integer.MAX_VALUE;
 		
-		for(Event e : eventsScheduled) {
+		for(Event e : getEventsScheduled()) {
 			
 			if(minNumberOfSeats > e.getnSeatsInTotal()) {
 				
